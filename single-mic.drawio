@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0" version="28.1.2">
+  <diagram name="Page-1" id="JiWPZ9h_1q2T4OyDSVtu">
+    <mxGraphModel dx="1126" dy="698" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="axjzoKotY6OT-XX8PcPx-15" value="LILYGO T-FPGA" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="320" y="160" width="480" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="axjzoKotY6OT-XX8PcPx-2" value="Motor Tracker Block Diagram (Single Mic)" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="110" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="axjzoKotY6OT-XX8PcPx-4" value="Microphone Module" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="100" y="190" width="180" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="axjzoKotY6OT-XX8PcPx-5" value="MEMS Microphone" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="230" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="axjzoKotY6OT-XX8PcPx-6" value="ADC" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="290" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="axjzoKotY6OT-XX8PcPx-7" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="axjzoKotY6OT-XX8PcPx-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="189.71000000000004" y="260" as="sourcePoint" />
+            <mxPoint x="189.71000000000004" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="axjzoKotY6OT-XX8PcPx-21" value="Gate Mesh" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="340" y="200" width="160" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="axjzoKotY6OT-XX8PcPx-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="axjzoKotY6OT-XX8PcPx-9" target="axjzoKotY6OT-XX8PcPx-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="axjzoKotY6OT-XX8PcPx-9" value="&lt;div&gt;I2C Interface&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="350" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="axjzoKotY6OT-XX8PcPx-10" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="axjzoKotY6OT-XX8PcPx-9">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="189.71000000000004" y="320" as="sourcePoint" />
+            <mxPoint x="189.71000000000004" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="axjzoKotY6OT-XX8PcPx-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="axjzoKotY6OT-XX8PcPx-13" target="axjzoKotY6OT-XX8PcPx-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="axjzoKotY6OT-XX8PcPx-13" value="&lt;div&gt;I2C Interface&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="230" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="axjzoKotY6OT-XX8PcPx-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="axjzoKotY6OT-XX8PcPx-17" target="axjzoKotY6OT-XX8PcPx-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="axjzoKotY6OT-XX8PcPx-17" value="Dechirping/FFT" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="310" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="axjzoKotY6OT-XX8PcPx-20" value="Gold Decoding" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="390" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="axjzoKotY6OT-XX8PcPx-24" value="&lt;div&gt;ESP-32&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="550" y="200" width="140" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="axjzoKotY6OT-XX8PcPx-25" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="230" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
