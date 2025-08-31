@@ -5,7 +5,7 @@
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="axjzoKotY6OT-XX8PcPx-15" value="LILYGO T-FPGA" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" parent="1" vertex="1">
-          <mxGeometry x="320" y="160" width="480" height="410" as="geometry" />
+          <mxGeometry x="320" y="160" width="390" height="410" as="geometry" />
         </mxCell>
         <mxCell id="axjzoKotY6OT-XX8PcPx-2" value="Motor Tracker Block Diagram (Single Mic)" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="320" y="110" width="120" height="30" as="geometry" />
