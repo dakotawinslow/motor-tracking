@@ -11,3 +11,5 @@ The idea here is to create a system that can detect the distance to a drone that
 4. An ESP32 performs the final multilateration calculations to estimate the distance to the drone.
 
 ![receiver diagram](https://github.com/dakotawinslow/motor-tracking/blob/main/single-mic.drawio.png?raw=true)
+
+However, it looks like the LilyGo board won't be able to do all of that. But maybe we can do the first part: reading the input data and storing it in a ring buffer that gets exposed to the ESP for transform analysis
