@@ -6,12 +6,13 @@ import tone_generator as tg
 offset = 0  # number of samples off from perfectly in-phase, for simulating issues
 
 
-def plot_ft(sig):
+def plot_ft(bins, sig):
     ylabel = "Amplitude"
     xlabel = "Frequency"
     plt.figure(figsize=(8, 4))
-    plt.plot(signal)
+    plt.plot(bins, sig)
     plt.title("FFT of Signal")
+    plt.xlim(0, 20000)
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.grid(True)
@@ -23,13 +24,32 @@ def plot_ft(sig):
 def demodulate_FSK(sig: np.ndarray):
     # TODO: Use filtering and a narrower window
     # First, we window the signal by the known transmission key length
+    low_peak = None
+    high_peak = None
+    symbols = []
     for i in range(0, sig.shape[0], tg.symbol_samples):
         # next, we do an fft on the chunk
-        sig_ft = fft.fft(sig[i : i + tg.symbol_samples])
-        plot_ft(sig_ft[0:20000])
-        break
+        window = sig[i : i + tg.symbol_samples]
+        sig_ft = fft.fft(window)
+        sig_ft = np.abs(sig_ft)[
+            : sig_ft.shape[0] // 2
+        ]  # take mag and throw out negatives to give us [0,pi]
+        top_freq = tg.audio_sample_rate // 2  # Nyquist limit
+        if not low_peak:
+            low_peak = int((tg.freq_min / top_freq) * sig_ft.shape[0])
+            high_peak = int((tg.freq_max / top_freq) * sig_ft.shape[0])
+        if sig_ft[low_peak] > sig_ft[high_peak]:
+            symbols.append(0)
+        else:
+            symbols.append(1)
+        print(f"Low peak value ({tg.freq_min}hz): {sig_ft[low_peak]}")
+        print(f"High peak value ({tg.freq_max}hz): {sig_ft[high_peak]}")
+        # amp_low = np.mean(amp_low)
+        # print(amp_low)
+    print(symbols)
+    return symbols
 
 
 if __name__ == "__main__":
     rate, sig = io.wavfile.read("signal.wav")
-    demodulate_FSK(sig)
+    symbols = demodulate_FSK(sig)
