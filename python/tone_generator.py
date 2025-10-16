@@ -52,8 +52,8 @@ def slope_shift_key_modulation(seq: list):
 def modulate(data: list, type: str):
     symbols = []
     if type == "FSK":
-        symbols.append(sine_wave(freq_max))
         symbols.append(sine_wave(freq_min))
+        symbols.append(sine_wave(freq_max))
     elif type == "SSK":
         symbols.append(
             signal.chirp(
@@ -100,6 +100,19 @@ def bytes2bitlist(bytes: int):
             bit = (byte >> j) & 1
             bitlist.append(bit)
     return bitlist
+
+
+def bitlist2bytes(bitlist):
+    if len(bitlist) % 8 != 0:
+        raise ValueError("bitlist length must be a multiple of 8")
+    bytes_out = []
+    for i in range(0, len(bitlist), 8):
+        byte = 0
+        for j in range(8):
+            # Set bit j if bitlist[i + j] is 1
+            byte |= (bitlist[i + j] & 1) << j
+        bytes_out.append(byte)
+    return bytes(bytes_out)
 
 
 def goldify(data_bitlist, gold_code_bitlist):

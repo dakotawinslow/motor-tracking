@@ -44,12 +44,16 @@ def demodulate_FSK(sig: np.ndarray):
             symbols.append(False)
         else:
             symbols.append(True)
-        print(f"Low peak value ({tg.freq_min}hz): {sig_ft[low_peak]}")
-        print(f"High peak value ({tg.freq_max}hz): {sig_ft[high_peak]}")
+        # print(f"Low peak value ({tg.freq_min}hz): {sig_ft[low_peak]}")
+        # print(f"High peak value ({tg.freq_max}hz): {sig_ft[high_peak]}")
         # amp_low = np.mean(amp_low)
         # print(amp_low)
     symbols = np.array(symbols, np.uint8)
-    print(symbols)
+    for i, symbol in enumerate(symbols):
+        print(symbol, end="")
+        if (i + 1) % 15 == 0:
+            print(" ", end="")
+    print("")
     return symbols
 
 
@@ -58,11 +62,19 @@ def despread(symbols, goldcode):
     # section signal into code-length chunks
     codelen = PRN.shape[0]
     numcodes = symbols.shape[0] // codelen
+    data = []
     for i in range(numcodes):
-        section = symbols[i : i + codelen]
-        print(f"section: {section}")
-        print(f"PRN: {PRN}")
+        section = symbols[i * codelen : (i + 1) * codelen]
+        print(f"section:       {section}")
+        print(f"PRN:           {PRN}")
         print(f"PRN ^ section: {PRN ^ section}")
+        val = np.sum(PRN ^ section)
+        if val > 7:
+            data.append(1)
+        else:
+            data.append(0)
+    # data.reverse()
+    return data
 
 
 if __name__ == "__main__":
@@ -70,4 +82,8 @@ if __name__ == "__main__":
     with open("goldcodes") as f:
         goldcodes = json.load(f)
     symbols = demodulate_FSK(sig)
-    despread(symbols, goldcodes[0])
+    data = despread(symbols, goldcodes[0])
+    print(data)
+    data = tg.bitlist2bytes(data)
+    print(format(int.from_bytes(data), "b"))
+    print(data)
