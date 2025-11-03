@@ -176,6 +176,7 @@ if __name__ == "__main__":
     # print(seq)
     out: np.ndarray
     out, outstr = modulate(seq, "FSK")
+    print(f"Code: {goldcodes[0]}")
     print(f"Data ({len(outstr)}: {outstr}")
     # convert to 16-bit int
     out = out * (2**15 - 1)

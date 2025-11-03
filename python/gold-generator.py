@@ -1,7 +1,7 @@
 import json
 
 # Step 1: Generate some m-sequences
-primative_polys = {2: [2, 1], 3: [3, 1], 4: [4, 1], 5: [5, 3]}
+primative_polys = {2: [2, 1], 3: [3, 1], 4: [4, 1], 5: [5, 3], 6: [6, 2]}
 
 
 def generate_m_seq(seed):
@@ -31,8 +31,8 @@ def cyclic_shift(seq, n=1):
 
 
 if __name__ == "__main__":
-    num_sequences = 2
-    m = 4
+    num_sequences = 64
+    m = 6
     m_seqs = []
     for i in range(num_sequences):
         seed = []
@@ -50,5 +50,5 @@ if __name__ == "__main__":
         gold = [a ^ b for a, b in zip(A, B)]
         golds.append(gold)
     print(golds)
-    with open("goldcodes", "w") as f:
+    with open("goldcodes63", "w") as f:
         json.dump(golds, f)
