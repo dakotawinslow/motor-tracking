@@ -23,7 +23,7 @@ def gen_gold(seq1, seq2, only_balanced=False):
 
 # seq1 = np.random.choice([0, 1], size=6)  # Random binary sequence
 # seq2 = np.random.choice([0, 1], size=6)
-seq1 = [0, 0, 0, 0, 0, 1]
+seq1 = [0, 1, 0, 0, 1, 1]
 seq2 = [0, 0, 0, 0, 0, 1]
 
 poly1 = [6, 5, 2, 1]
